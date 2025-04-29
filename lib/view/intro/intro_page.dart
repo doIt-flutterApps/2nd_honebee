@@ -8,7 +8,7 @@ import 'package:honeybee/data/constant.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../data/user.dart';
-
+import '../auth/auth_page.dart';
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
 
@@ -108,9 +108,9 @@ class _IntroPage extends State<IntroPage> {
         builder: (BuildContext context) {
           _isDialogOpen = true;
           return AlertDialog(
-            title: const Text('심리 테스트 앱'),
+            title: const Text('허니비 앱'),
             content: const Text(
-              '지금 인터넷에 연결되지 않아 심리 테스트 앱을 사용할 수 없습니다. '
+              '지금 인터넷에 연결되지 않아 허니비 앱을 사용할 수 없습니다. '
                   '나중에 다시 실행해 주세요.',
             ),
             actions: [
@@ -161,7 +161,7 @@ class _IntroPage extends State<IntroPage> {
                 } else {
                   Future.delayed(const Duration(seconds: 2), () {
                     // 회원 가입 페이지로 이동하기
-                    print('로그인 안 됨');
+                    Get.off(const AuthPage());
                   });
                 }
               });
