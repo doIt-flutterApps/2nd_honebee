@@ -3,6 +3,9 @@ import 'package:honeybee/view/main/sub/home_page.dart';
 import 'package:honeybee/view/main/sub/draw_page.dart';
 import 'package:honeybee/view/main/sub/search_page.dart';
 import 'package:honeybee/view/main/sub/profile_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get/get.dart';
+import '../hobby/ChatScreen.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -45,6 +48,18 @@ class _MainPage extends State<MainPage> {
           });
         },
       ),
+      floatingActionButton:
+          tapNumber == 0
+              ? FloatingActionButton(
+                child: const Icon(Icons.chat),
+                onPressed: () async {
+                  final SharedPreferences preferences =
+                      await SharedPreferences.getInstance();
+                  String? hobby = preferences.getString('hobby');
+                  Get.to(ChatScreen(hobby: hobby));
+                },
+              )
+              : null,
     );
   }
 
