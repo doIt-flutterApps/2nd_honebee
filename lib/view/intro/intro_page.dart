@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../data/user.dart';
 import '../auth/auth_page.dart';
 import '../hobby/hobby_selection_page.dart';
+import 'package:honeybee/view/main/main_page.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -156,6 +157,7 @@ class _IntroPage extends State<IntroPage> {
                     Get.snackbar(Constant.APP_NAME, '로그인했습니다.');
                     if (user.hobby != null) {
                       // 메인 페이지로 이동하기
+                      Get.off(MainPage());
                     } else {
                       // 취미 선택 페이지로 이동하기
                       Get.off(HobbySelectionPage());
