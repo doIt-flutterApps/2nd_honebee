@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:honeybee/data/constant.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../hobby/hobby_selection_page.dart';
 
 import '../../data/user.dart';
 
@@ -115,7 +116,9 @@ class _AuthPage extends State<AuthPage> {
           })
           .then((value) {
             // 취미 선택 페이지로 이동하기
-          });
+        Get.off(HobbySelectionPage());
+
+      });
     } on FirebaseAuthException catch (e) {
       // 에러 발생 시 메시지 업데이트
       setState(() {
